@@ -21,7 +21,7 @@ public class ArrayStorage {
 
     void save(Resume r) {
 
-        if (r != null){
+        if (r != null && storageSize < 10000){
             storage[storageSize++] = r;
             System.out.println("Saving " + r);
         }
