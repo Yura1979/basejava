@@ -21,16 +21,16 @@ public class ArrayStorage {
 
     void save(Resume r) {
 
-        if (r != null && storageSize < 10000){
+        if (r != null && storageSize < storage.length){
             storage[storageSize++] = r;
             System.out.println("Saving " + r);
         }
     }
 
     Resume get(String uuid) {
-        for (int i = 0; i < storage.length; i++) {
+        for (int i = 0; i < storageSize; i++) {
 
-            if (storage[i] != null && storage[i].uuid == uuid) {
+            if (storage[i] != null && storage[i].equals(uuid)) {
                 return storage[i];
             }
         }
@@ -38,11 +38,11 @@ public class ArrayStorage {
     }
 
     void delete(String uuid) {
-        for (int i = 0; i < storage.length; i++) {
+        for (int i = 0; i < storageSize; i++) {
             if (storage[i] != null && storage[i].uuid.equals(uuid)) {
                 System.out.println("we deleting " + storage[i]);
                 storage[i] = storage[storageSize-1];
-                storage[storageSize] = null;
+                storage[storageSize-1] = null;
                 storageSize--;
             }
         }
