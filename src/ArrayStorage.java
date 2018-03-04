@@ -39,7 +39,7 @@ public class ArrayStorage {
 
     void delete(String uuid) {
         for (int i = 0; i < storageSize; i++) {
-            if (storage[i] != null && storage[i].uuid.equals(uuid)) {
+            if (storage[i].uuid.equals(uuid)) {
                 System.out.println("we deleting " + storage[i]);
                 storage[i] = storage[storageSize-1];
                 storage[storageSize-1] = null;
